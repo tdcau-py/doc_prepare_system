@@ -1,0 +1,32 @@
+* {
+	background-color: #ffffff;
+	font-family: Arial, sans-serif;
+}
+
+#title_1, #title_2 {
+	color: /*#EBF4F4*/ #203B6C;
+	font-weight: bold;
+}
+
+.QLineEdit:focus {
+	border: 2px solid blue;
+	padding-left: 5px;
+}
+
+.QPushButton:active {
+	background-color: #203B6C;
+	color: #ffffff;
+}
+
+.QPushButton:hover {
+	background-color: #C2CFE6;
+	color: #081F5A;
+}
+
+.QMessageBox .QLabel {
+	background-color: #ffffff;
+}
+
+#result_widget, #title_2, #result_inn {
+	background-color: #EBF4F4;
+}

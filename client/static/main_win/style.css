@@ -1,0 +1,19 @@
+* {
+	font-family: Arial, sans-serif;
+}
+
+.MainWindow {
+	background-color: #ffffff;
+}
+
+.QPushButton {
+	background-color: #FFFADE;
+	color: #3D0101;
+	border-radius: 5px;
+	font-size: 18px;
+}
+
+.QPushButton:hover {
+	background-color: #3D0101;
+	color: #ffffff;
+}

@@ -1,0 +1,16 @@
+# folders
+client/build/
+client/dist/
+client/modules/__pycache__/
+
+# files
+*.ps1
+*.spec
+client/receipt_requisites.ini
+client/app_settings.ini
+server/server_settings.ini
+
+# gitignore files
+..gitignore.un~
+.gitignore~
+*.swp
