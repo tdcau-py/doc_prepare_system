@@ -2,6 +2,7 @@
 client/build/
 client/dist/
 client/modules/__pycache__/
+server/modules/__pycache__
 
 # files
 *.ps1
