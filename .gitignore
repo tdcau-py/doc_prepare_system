@@ -9,7 +9,7 @@ server/modules/__pycache__
 *.spec
 client/receipt_requisites.ini
 client/app_settings.ini
-server/server_settings.ini
+server/settings.ini
 
 # gitignore files
 ..gitignore.un~

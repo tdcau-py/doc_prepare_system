@@ -1,6 +1,4 @@
-from PyQt5 import QtWidgets, QtCore, QtGui, uic
-from PyQt5 import sip
-import openpyxl
+from PyQt5 import QtWidgets, QtGui, uic
 from datetime import datetime
 from modules.notifications_creator import FormWindow
 from modules.receipt_generator import FormReceipt
