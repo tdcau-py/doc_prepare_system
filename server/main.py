@@ -10,18 +10,20 @@ class ClientConnections(QtCore.QThread):
     config = configparser.ConfigParser()
     config.read(CONFIG_FILE, encoding='utf8')
     HOST = config['default']['host']
-    PORT = config['default']['port']
+    PORT = int(config['default']['port'])
 
     server_status = QtCore.pyqtSignal(str)
 
     def __init__(self, parent = None) -> None:
         super().__init__(parent)
+        self.running = False
 
     def run(self):
         """Соединение с клиентом и обмен данными"""
-        self.server_status.emit('Сервер работает.')
+        # self.server_status.emit('Сервер работает.')
+        self.running = True
 
-        while True:
+        while self.running:
             with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as server_socket:
                 server_socket.bind((self.HOST, self.PORT))
                 server_socket.listen(1)
@@ -45,13 +47,34 @@ class SettingsWin(QtWidgets.QMainWindow):
         self.ui = gui()
         self.ui.setupUi(self)
         self.setWindowTitle('Сервер системы формирования документов')
-        
+
+        self.ui.serverStatus.setText('Сервер остановлен.')
         self.connections_thread = ClientConnections()
-        self.ui.startServer.clicked.connect(self.start_server)
+
+        self.ui.btnStopServer.setDisabled(True)
+        self.ui.btnStartServer.clicked.connect(self.start_server)
+        self.ui.btnStopServer.clicked.connect(self.stop_server)
+
+        self.connections_thread.started.connect(self.server_started)
+        self.connections_thread.finished.connect(self.server_stoped)
 
     def start_server(self):
         """Соединение с клиентом и обмен данными"""
+        self.ui.btnStartServer.setDisabled(True)
+        self.ui.btnStopServer.setEnabled(True)
         self.connections_thread.start()
+
+    def server_started(self):
+        self.ui.serverStatus.setText('Сервер работает.')
+
+    def stop_server(self):
+        """Остановка потока, обрыв соединения с клиентами"""
+        self.ui.btnStartServer.setEnabled(True)
+        self.ui.btnStopServer.setDisabled(True)
+        self.connections_thread.running = False
+
+    def server_stoped(self):
+        self.ui.serverStatus.setText('Сервер остановлен.')
 
 
 if __name__ == '__main__':

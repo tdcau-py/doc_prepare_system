@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>562</width>
-    <height>586</height>
+    <height>618</height>
    </rect>
   </property>
   <property name="font">
@@ -251,20 +251,32 @@
         <widget class="QWidget" name="widget_5" native="true">
          <layout class="QHBoxLayout" name="horizontalLayout_7">
           <item>
-           <widget class="QPushButton" name="startServer">
+           <widget class="QPushButton" name="btnStartServer">
             <property name="text">
              <string>Запуск сервера</string>
             </property>
            </widget>
           </item>
           <item>
-           <widget class="QPushButton" name="stopServer">
+           <widget class="QPushButton" name="btnStopServer">
             <property name="text">
              <string>Остановить сервер</string>
             </property>
            </widget>
           </item>
          </layout>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="serverStatus">
+         <property name="font">
+          <font>
+           <pointsize>10</pointsize>
+          </font>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
         </widget>
        </item>
       </layout>
